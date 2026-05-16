@@ -43,11 +43,21 @@ dev = [
 [tool.ruff]
 target-version = "py312"
 line-length = 100
+
+[tool.ruff.lint]
 select = ["E", "F", "I", "N", "W", "B", "UP", "ANN", "S", "A"]
 ignore = ["ANN101", "ANN102", "S101"]
 
+[tool.ruff.lint.per-file-ignores]
+"migrations/*" = ["ANN", "N999"]
+"tests/*" = ["ANN", "S"]
+
 [tool.ruff.format]
 quote-style = "double"
+
+[tool.black]
+line-length = 100
+target-version = ["py312"]
 
 [tool.mypy]
 python_version = "3.12"
