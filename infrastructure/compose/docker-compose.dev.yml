@@ -1,0 +1,34 @@
+name: findspam
+
+services:
+  api:
+    command: ["uvicorn", "main:app", "--reload", "--host", "0.0.0.0", "--port", "8000"]
+    volumes:
+      - ../../apps/api:/app
+    environment:
+      - DEBUG=true
+      - LOG_LEVEL=DEBUG
+
+  web:
+    command: ["pnpm", "dev"]
+    volumes:
+      - ../../apps/web:/app
+      - /app/node_modules
+      - /app/.next
+
+  telegram-bot:
+    environment:
+      - DEBUG=true
+
+  ai-engine:
+    command: ["uvicorn", "main:app", "--reload", "--host", "0.0.0.0", "--port", "8001"]
+    volumes:
+      - ../../apps/ai-engine:/app
+
+  postgres:
+    ports:
+      - "5432:5432"
+
+  redis:
+    ports:
+      - "6379:6379"

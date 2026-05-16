@@ -1,0 +1,43 @@
+{
+  "name": "@findspam/web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FindSpam enterprise admin dashboard — Next.js 15",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit",
+    "test": "jest --passWithNoTests",
+    "clean": "rimraf .next dist"
+  },
+  "dependencies": {
+    "@findspam/config": "workspace:*",
+    "@findspam/types": "workspace:*",
+    "@findspam/ui": "workspace:*",
+    "@findspam/utils": "workspace:*",
+    "@tanstack/react-query": "^5.59.0",
+    "@tanstack/react-query-devtools": "^5.59.0",
+    "framer-motion": "^11.0.0",
+    "next": "^15.0.0",
+    "next-themes": "^0.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "recharts": "^2.13.0",
+    "sonner": "^1.7.0",
+    "zustand": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "prettier-plugin-tailwindcss": "^0.6.0",
+    "tailwindcss": "^3.4.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "rimraf": "^6.0.0",
+    "typescript": "^5.5.0"
+  }
+}

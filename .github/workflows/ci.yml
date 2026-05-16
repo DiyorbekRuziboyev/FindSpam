@@ -1,0 +1,106 @@
+name: CI
+
+on:
+  push:
+    branches: [develop, main]
+  pull_request:
+    branches: [develop, main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ─── TypeScript / Frontend ──────────────────────────────────────────────────
+  web-checks:
+    name: Frontend — Lint & Type Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run lint
+      - run: pnpm run type-check
+
+  # ─── Python / API ───────────────────────────────────────────────────────────
+  api-checks:
+    name: API — Lint, Type Check & Tests
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: findspam_test
+          POSTGRES_USER: test_user
+          POSTGRES_PASSWORD: test_password
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      redis:
+        image: redis:7-alpine
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+          cache-dependency-path: apps/api/pyproject.toml
+      - working-directory: apps/api
+        run: pip install -e ".[dev]"
+      - working-directory: apps/api
+        run: ruff check .
+      - working-directory: apps/api
+        run: mypy .
+      - working-directory: apps/api
+        run: pytest --cov=. --cov-report=xml
+        env:
+          DATABASE_URL: postgresql+asyncpg://test_user:test_password@localhost:5432/findspam_test
+          REDIS_URL: redis://localhost:6379/0
+          TELEGRAM_BOT_TOKEN: test_token
+          JWT_PRIVATE_KEY_PATH: ./tests/fixtures/private.pem
+          JWT_PUBLIC_KEY_PATH: ./tests/fixtures/public.pem
+
+  # ─── Python / Bot ───────────────────────────────────────────────────────────
+  bot-checks:
+    name: Bot — Lint & Type Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - working-directory: apps/telegram-bot
+        run: pip install -e ".[dev]"
+      - working-directory: apps/telegram-bot
+        run: ruff check .
+      - working-directory: apps/telegram-bot
+        run: mypy .
+
+  # ─── Docker Build Check ─────────────────────────────────────────────────────
+  docker-build:
+    name: Docker — Build Validation
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        service: [api, web, bot, ai]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build ${{ matrix.service }}
+        run: >
+          docker build
+          -f infrastructure/docker/${{ matrix.service }}.Dockerfile
+          -t findspam-${{ matrix.service }}:ci
+          ${{ matrix.service == 'web' && '.' || format('apps/{0}', matrix.service == 'bot' && 'telegram-bot' || matrix.service) }}

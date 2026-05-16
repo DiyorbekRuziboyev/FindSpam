@@ -1,0 +1,49 @@
+name: findspam
+
+services:
+  api:
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 1G
+    environment:
+      - DEBUG=false
+      - LOG_LEVEL=INFO
+
+  web:
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 512M
+
+  ai-engine:
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 4G
+
+  telegram-bot:
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 512M
+
+  postgres:
+    environment:
+      POSTGRES_INITDB_ARGS: "--auth-host=scram-sha-256"
+
+  redis:
+    command: >
+      redis-server
+      --requirepass ${REDIS_PASSWORD}
+      --appendonly yes
+      --maxmemory 512mb
+      --maxmemory-policy allkeys-lru

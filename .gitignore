@@ -1,0 +1,101 @@
+# ─── Node.js ──────────────────────────────────────────────────────────────────
+node_modules/
+.next/
+out/
+dist/
+build/
+.turbo/
+*.tsbuildinfo
+
+# ─── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+env/
+.env/
+pip-wheel-metadata/
+*.whl
+
+# ─── Environment ──────────────────────────────────────────────────────────────
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.staging
+.env.production
+!.env.example
+
+# ─── AI / ML ──────────────────────────────────────────────────────────────────
+apps/ai-engine/model_artifacts/**
+!apps/ai-engine/model_artifacts/.gitkeep
+datasets/raw/**
+!datasets/raw/.gitkeep
+datasets/processed/**
+!datasets/processed/.gitkeep
+*.pt
+*.pth
+*.bin
+*.onnx
+*.pkl
+*.joblib
+*.h5
+
+# ─── Database ─────────────────────────────────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+
+# ─── Logs ─────────────────────────────────────────────────────────────────────
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ─── OS ───────────────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ─── IDE ──────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+
+# ─── Docker ───────────────────────────────────────────────────────────────────
+infrastructure/nginx/ssl/*.pem
+infrastructure/nginx/ssl/*.key
+infrastructure/nginx/ssl/*.crt
+
+# ─── Testing ──────────────────────────────────────────────────────────────────
+coverage/
+.coverage
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ─── Package managers ─────────────────────────────────────────────────────────
+.pnp
+.pnp.js
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz

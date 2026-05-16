@@ -1,0 +1,17 @@
+name: CD — Staging
+
+on:
+  push:
+    branches: [develop]
+
+jobs:
+  deploy-staging:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and push images
+        run: echo "Build and push to registry — implement in Phase 6"
+      - name: Deploy to staging server
+        run: echo "SSH deploy — implement in Phase 6"

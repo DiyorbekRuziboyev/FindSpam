@@ -1,0 +1,23 @@
+{
+  "name": "@findspam/config",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shared ESLint, TypeScript, and Tailwind configuration for FindSpam",
+  "exports": {
+    "./eslint": "./eslint/index.js",
+    "./typescript/base": "./typescript/base.json",
+    "./typescript/nextjs": "./typescript/nextjs.json",
+    "./tailwind": "./tailwind/index.ts"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^15.0.0",
+    "eslint-plugin-react": "^7.37.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.5.0"
+  }
+}
