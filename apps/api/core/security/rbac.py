@@ -1,13 +1,6 @@
-from enum import StrEnum
 from typing import Sequence
 
-
-class UserRole(StrEnum):
-    SUPER_ADMIN = "SUPER_ADMIN"
-    ADMIN = "ADMIN"
-    ANALYST = "ANALYST"
-    MODERATOR = "MODERATOR"
-
+from core.db.enums import UserRole
 
 ROLE_PERMISSIONS: dict[UserRole, frozenset[str]] = {
     UserRole.SUPER_ADMIN: frozenset({

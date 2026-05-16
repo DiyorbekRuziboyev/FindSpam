@@ -1,0 +1,105 @@
+from enum import StrEnum
+
+
+class UserRole(StrEnum):
+    SUPER_ADMIN = "SUPER_ADMIN"
+    ADMIN = "ADMIN"
+    ANALYST = "ANALYST"
+    MODERATOR = "MODERATOR"
+
+
+class ThreatLevel(StrEnum):
+    NONE = "NONE"
+    LOW = "LOW"
+    MEDIUM = "MEDIUM"
+    HIGH = "HIGH"
+    CRITICAL = "CRITICAL"
+
+
+class SpamCategory(StrEnum):
+    SPAM = "SPAM"
+    SCAM = "SCAM"
+    PHISHING = "PHISHING"
+    FAKE_GIVEAWAY = "FAKE_GIVEAWAY"
+    MALICIOUS_AD = "MALICIOUS_AD"
+    SOCIAL_ENGINEERING = "SOCIAL_ENGINEERING"
+    SUSPICIOUS_URL = "SUSPICIOUS_URL"
+    MANIPULATIVE_MARKETING = "MANIPULATIVE_MARKETING"
+    CLEAN = "CLEAN"
+
+
+class Language(StrEnum):
+    UZ_LATIN = "UZ_LATIN"
+    UZ_CYRILLIC = "UZ_CYRILLIC"
+    RU = "RU"
+    EN = "EN"
+    UNKNOWN = "UNKNOWN"
+
+
+class ModerationAction(StrEnum):
+    DELETE = "DELETE"
+    WARN = "WARN"
+    MUTE = "MUTE"
+    TEMP_BAN = "TEMP_BAN"
+    PERMANENT_BAN = "PERMANENT_BAN"
+    WHITELIST = "WHITELIST"
+    NO_ACTION = "NO_ACTION"
+
+
+class ReviewStatus(StrEnum):
+    PENDING = "PENDING"
+    APPROVED = "APPROVED"
+    REJECTED = "REJECTED"
+    AUTO_RESOLVED = "AUTO_RESOLVED"
+
+
+class BanType(StrEnum):
+    TEMPORARY = "TEMPORARY"
+    PERMANENT = "PERMANENT"
+
+
+class ContentType(StrEnum):
+    TEXT = "TEXT"
+    PHOTO = "PHOTO"
+    VIDEO = "VIDEO"
+    DOCUMENT = "DOCUMENT"
+    STICKER = "STICKER"
+    OTHER = "OTHER"
+
+
+class ActorType(StrEnum):
+    BOT = "BOT"
+    ADMIN = "ADMIN"
+    SYSTEM = "SYSTEM"
+    USER = "USER"
+
+
+class SecurityEventType(StrEnum):
+    LOGIN_SUCCESS = "LOGIN_SUCCESS"
+    LOGIN_FAILURE = "LOGIN_FAILURE"
+    TOKEN_REFRESH = "TOKEN_REFRESH"
+    TOKEN_REUSE_DETECTED = "TOKEN_REUSE_DETECTED"
+    LOGOUT = "LOGOUT"
+    PASSWORD_CHANGE = "PASSWORD_CHANGE"
+    ROLE_CHANGE = "ROLE_CHANGE"
+
+
+class SecuritySeverity(StrEnum):
+    INFO = "INFO"
+    WARNING = "WARNING"
+    CRITICAL = "CRITICAL"
+
+
+class ThreatType(StrEnum):
+    DOMAIN = "DOMAIN"
+    USERNAME = "USERNAME"
+    PHONE = "PHONE"
+    EMAIL = "EMAIL"
+    IP_ADDRESS = "IP_ADDRESS"
+
+
+class NotificationType(StrEnum):
+    SPAM_DETECTED = "SPAM_DETECTED"
+    HIGH_CONFIDENCE_SPAM = "HIGH_CONFIDENCE_SPAM"
+    SYSTEM_ALERT = "SYSTEM_ALERT"
+    MODEL_RETRAINED = "MODEL_RETRAINED"
