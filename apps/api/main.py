@@ -22,6 +22,7 @@ def create_app() -> FastAPI:
     _register_middleware(app)
     _register_routers(app)
     _register_exception_handlers(app)
+    _register_health(app)
 
     return app
 
@@ -64,9 +65,14 @@ def _register_exception_handlers(app: FastAPI) -> None:
     register_handlers(app)
 
 
-@app.get("/health", tags=["Health"])
-async def health_check() -> dict[str, str]:
-    return {"status": "healthy", "service": "findspam-api"}
+def _register_health(app: FastAPI) -> None:
+    @app.get("/health", tags=["Health"], include_in_schema=False)
+    async def health_check() -> dict[str, str]:
+        return {"status": "healthy", "service": "findspam-api", "version": settings.app_version}
+
+    @app.get("/health/ready", tags=["Health"], include_in_schema=False)
+    async def readiness_check() -> dict[str, str]:
+        return {"status": "ready"}
 
 
 app = create_app()
