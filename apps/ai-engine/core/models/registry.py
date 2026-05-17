@@ -39,9 +39,9 @@ class ModelRegistry:
         from core.models.tfidf_lr import TFIDFLogisticRegressionAdapter
         from core.models.xlm_roberta import XLMRobertaAdapter
         from core.models.mbert import MultilingualBERTAdapter
-        from core.config import get_settings
+        from core.config import get_ai_settings
 
-        settings = get_settings()
+        settings = get_ai_settings()
         registry = cls()
         registry.register(RuleEngine())
         registry.register(TFIDFLogisticRegressionAdapter())

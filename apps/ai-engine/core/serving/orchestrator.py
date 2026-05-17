@@ -5,7 +5,7 @@ import hashlib
 import logging
 import time
 
-from core.config import get_settings
+from core.config import get_ai_settings
 from core.ensemble.weighted import WeightedAverageEnsemble
 from core.explainability.shap_explainer import SHAPExplainer
 from core.models.base import ModelPrediction
@@ -94,7 +94,7 @@ class EnsemblePredictor:
         self._ensemble = WeightedAverageEnsemble()
         self._explainer: SHAPExplainer | None = None
 
-        settings = get_settings()
+        settings = get_ai_settings()
         self._weights = {
             "xlm_roberta": settings.weight_xlm_roberta,
             "mbert": settings.weight_mbert,
