@@ -1,0 +1,22 @@
+"""Message strings — Uzbek Cyrillic."""
+
+from __future__ import annotations
+
+SPAM_DELETED = "🚫 Спам хабари ўчирилди.\n👤 {name} | 📊 {confidence:.0%} | {threat_level}"
+SPAM_FLAGGED = "⚠️ Шубҳали хабар.\n👤 {name} | 📊 {confidence:.0%} | {threat_level}"
+USER_WARNED = "⚠️ <b>{name}</b> огоҳлантириш олди.\n📝 Сабаб: {reason}"
+USER_MUTED = "🔇 <b>{name}</b> {minutes} дақиқага жим қилинди.\n📝 Сабаб: {reason}"
+USER_UNMUTED = "🔊 <b>{name}</b> гапиришга рухсат берилди."
+USER_BANNED = "🚫 <b>{name}</b> гуруҳдан блокланди.\n📝 Сабаб: {reason}"
+USER_UNBANNED = "✅ <b>{name}</b> блокдан чиқарилди."
+USER_KICKED = "👢 <b>{name}</b> гуруҳдан ҳайдалди."
+FLOOD_MUTED = "🌊 <b>{name}</b> флуд учун {minutes} дақиқага жим қилинди."
+RAID_ALERT = "🚨 <b>РЕЙД ХАВФИ!</b>\nСўнгги {window}с ичида <b>{count}</b> янги аъзо."
+BOT_ACTIVATED = "🛡 <b>FindSpamBot</b> фаоллаштирилди! Созламалар: /settings"
+NO_TARGET = "Ушбу буйруқни хабарга реплай қилиб ишлатинг."
+ACTION_FAILED = "❌ Амал муваффақиятсиз бўлди."
+NO_STATS = "📊 Статистика ҳали мавжуд эмас."
+SETTINGS_MENU = "⚙️ <b>Гуруҳ созламалари</b>\n\nқуйидагилардан бирини танланг:"
+SETTINGS_LANG_PROMPT = "🌐 <b>Тил танланг:</b>"
+SETTINGS_LANG_CHANGED = "✅ Тил ўзгартирилди: {lang}"
+NOT_ADMIN = "❌ Бу буйруқ фақат админлар учун."

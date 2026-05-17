@@ -1,0 +1,22 @@
+"""Message strings — English."""
+
+from __future__ import annotations
+
+SPAM_DELETED = "🚫 Spam removed.\n👤 {name} | 📊 {confidence:.0%} | {threat_level}"
+SPAM_FLAGGED = "⚠️ Suspicious message flagged.\n👤 {name} | 📊 {confidence:.0%} | {threat_level}"
+USER_WARNED = "⚠️ <b>{name}</b> received a warning.\n📝 Reason: {reason}"
+USER_MUTED = "🔇 <b>{name}</b> muted for {minutes} minutes.\n📝 Reason: {reason}"
+USER_UNMUTED = "🔊 <b>{name}</b> can now send messages."
+USER_BANNED = "🚫 <b>{name}</b> has been banned.\n📝 Reason: {reason}"
+USER_UNBANNED = "✅ <b>{name}</b> has been unbanned."
+USER_KICKED = "👢 <b>{name}</b> has been kicked."
+FLOOD_MUTED = "🌊 <b>{name}</b> muted {minutes} min for flooding."
+RAID_ALERT = "🚨 <b>RAID ALERT!</b>\n<b>{count}</b> new members joined in the last {window}s."
+BOT_ACTIVATED = "🛡 <b>FindSpamBot</b> activated! Configure: /settings"
+NO_TARGET = "Reply to a message to use this command."
+ACTION_FAILED = "❌ Action failed."
+NO_STATS = "📊 No statistics available yet."
+SETTINGS_MENU = "⚙️ <b>Group settings</b>\n\nSelect a section:"
+SETTINGS_LANG_PROMPT = "🌐 <b>Select language:</b>"
+SETTINGS_LANG_CHANGED = "✅ Language changed to: {lang}"
+NOT_ADMIN = "❌ This command is for administrators only."

@@ -1,0 +1,22 @@
+"""Message strings — Russian."""
+
+from __future__ import annotations
+
+SPAM_DELETED = "🚫 Спам удалён.\n👤 {name} | 📊 {confidence:.0%} | {threat_level}"
+SPAM_FLAGGED = "⚠️ Подозрительное сообщение.\n👤 {name} | 📊 {confidence:.0%} | {threat_level}"
+USER_WARNED = "⚠️ <b>{name}</b> получил предупреждение.\n📝 Причина: {reason}"
+USER_MUTED = "🔇 <b>{name}</b> замьючен на {minutes} мин.\n📝 Причина: {reason}"
+USER_UNMUTED = "🔊 <b>{name}</b> теперь может писать."
+USER_BANNED = "🚫 <b>{name}</b> заблокирован.\n📝 Причина: {reason}"
+USER_UNBANNED = "✅ <b>{name}</b> разблокирован."
+USER_KICKED = "👢 <b>{name}</b> исключён из группы."
+FLOOD_MUTED = "🌊 <b>{name}</b> замьючен за флуд на {minutes} мин."
+RAID_ALERT = "🚨 <b>РЕЙД!</b>\nЗа последние {window}с присоединились <b>{count}</b> участников."
+BOT_ACTIVATED = "🛡 <b>FindSpamBot</b> активирован! Настройки: /settings"
+NO_TARGET = "Используйте команду в ответ на сообщение."
+ACTION_FAILED = "❌ Действие не выполнено."
+NO_STATS = "📊 Статистика пока недоступна."
+SETTINGS_MENU = "⚙️ <b>Настройки группы</b>\n\nВыберите раздел:"
+SETTINGS_LANG_PROMPT = "🌐 <b>Выберите язык:</b>"
+SETTINGS_LANG_CHANGED = "✅ Язык изменён: {lang}"
+NOT_ADMIN = "❌ Команда доступна только администраторам."

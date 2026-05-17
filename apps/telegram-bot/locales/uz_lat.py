@@ -1,0 +1,22 @@
+"""Message strings — Uzbek Latin."""
+
+from __future__ import annotations
+
+SPAM_DELETED = "🚫 Spam xabari o'chirildi.\n👤 {name} | 📊 {confidence:.0%} | {threat_level}"
+SPAM_FLAGGED = "⚠️ Shubhali xabar.\n👤 {name} | 📊 {confidence:.0%} | {threat_level}"
+USER_WARNED = "⚠️ <b>{name}</b> ogohlantirish oldi.\n📝 Sabab: {reason}"
+USER_MUTED = "🔇 <b>{name}</b> {minutes} daqiqaga jim qilindi.\n📝 Sabab: {reason}"
+USER_UNMUTED = "🔊 <b>{name}</b> gapirishga ruxsat berildi."
+USER_BANNED = "🚫 <b>{name}</b> guruhdan bloklandi.\n📝 Sabab: {reason}"
+USER_UNBANNED = "✅ <b>{name}</b> blokdan chiqarildi."
+USER_KICKED = "👢 <b>{name}</b> guruhdan haydaldi."
+FLOOD_MUTED = "🌊 <b>{name}</b> flood uchun {minutes} daqiqaga jim qilindi."
+RAID_ALERT = "🚨 <b>RAID XAVFI!</b>\nSo'nggi {window}s ichida <b>{count}</b> yangi a'zo."
+BOT_ACTIVATED = "🛡 <b>FindSpamBot</b> faollashtirildi! Sozlamalar: /settings"
+NO_TARGET = "Ushbu buyruqni xabarga reply qilib ishlating."
+ACTION_FAILED = "❌ Amal muvaffaqiyatsiz bo'ldi."
+NO_STATS = "📊 Statistika hali mavjud emas."
+SETTINGS_MENU = "⚙️ <b>Guruh sozlamalari</b>\n\nQuyidagi bo'limlardan birini tanlang:"
+SETTINGS_LANG_PROMPT = "🌐 <b>Til tanlang:</b>"
+SETTINGS_LANG_CHANGED = "✅ Til o'zgartirildi: {lang}"
+NOT_ADMIN = "❌ Bu buyruq faqat adminlar uchun."
