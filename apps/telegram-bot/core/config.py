@@ -29,9 +29,22 @@ class BotSettings(BaseSettings):
     # Localization
     default_language: str = "uz_lat"
 
-    # Moderation
+    # Moderation thresholds
     spam_confidence_threshold: float = 0.80
     suspicious_threshold: float = 0.60
+
+    # Rate limiting (per user, per window)
+    rate_limit_messages: int = 20
+    rate_limit_window: int = 60
+
+    # Flood detection
+    flood_threshold: int = 5
+    flood_window: int = 60
+    flood_mute_duration: int = 300
+
+    # Anti-raid
+    raid_join_threshold: int = 10
+    raid_window: int = 30
 
 
 @lru_cache(maxsize=1)
